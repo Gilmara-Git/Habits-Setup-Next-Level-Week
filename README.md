@@ -13,8 +13,8 @@
 
 # About
 
-Application to help you setup and commit to new 'habits' for the year.
-It's a full application with a backend API, Web and Mobile.
+Application to help you setup and commit to new 'habits' for the year.</br>
+It's a full application with a backend API, Web and Mobile.</br>
 It allows you to:
 - Create a habit and choose each day(s) of the week you would like to commit.
 - Complete your habits for the current day only. 
@@ -23,8 +23,8 @@ It allows you to:
 
 
 # Motivation
-Keep committed with my goals.
-Opportunity do code along with an amazing supportive community, learn together and progress as a Developer.
+Keep committed with my goals.</br>
+Opportunity do code along with an amazing supportive community, learn together and progress as a Developer.</br>
 Thanks to [Rocketseat](https://www.instagram.com/rocketseat/?igshid=Yzg5MTU1MDY%3D) for promoting one more amazing event. 💗
 
 
@@ -46,7 +46,7 @@ Thanks to [Rocketseat](https://www.instagram.com/rocketseat/?igshid=Yzg5MTU1MDY%
 - @prisma/client
 - prisma studio
 - SQlite
-- Insomnia (send requests to backend/database)
+- Insomnia (To send requests to backend/database)
 - Seed (populating database)
 
 ## Frontend
@@ -55,7 +55,7 @@ Thanks to [Rocketseat](https://www.instagram.com/rocketseat/?igshid=Yzg5MTU1MDY%
 - Typescript
 - Phosphor-icons for React
 - Tailwindcss
-- Lib **Radix** to create component with accessibility features (ex: Popover, Checkbox )
+- Lib **Radix** to create components with accessibility features (ex: Popover, Checkbox )
 - Lib **clsx**  -  to use conditional classes when styling
 
 
@@ -84,6 +84,6 @@ Thanks to [Rocketseat](https://www.instagram.com/rocketseat/?igshid=Yzg5MTU1MDY%
 [Rodrigo Gonçalves](https://www.linkedin.com/in/rodrigo-gon%C3%A7alves-santana/)
 
 ## Platform
-Youtube: Online event opened during a Week.
+Youtube: Online event opened during a Week, in January 2023
 
 
