@@ -24,39 +24,40 @@ const availableWeekDays = [
 ];
 
 export const New = () => {
-  const [weekdays, setWeekDays] = useState<number[]>([]);
+  const [weekdays, setWeekdays] = useState<number[]>([]);
   const [title, setTitle] = useState("");
 
   const handleToggleWeekDay = (weekdayIndex: number) => {
     if (weekdays.includes(weekdayIndex)) {
       // desmarcar
-      setWeekDays((prevState) =>
+      setWeekdays((prevState) =>
         prevState.filter((weekday) => weekday !== weekdayIndex)
       );
     } else {
       // marcar
-      setWeekDays((prevState) => [...prevState, weekdayIndex]);
+      setWeekdays((prevState) => [...prevState, weekdayIndex]);
     }
   };
 
   const handleCreateNewHabit = async () => {
+    if (!title.trim() || weekdays.length === 0) {
+      return Alert.alert(
+        "New Habit",
+        "Inform your new Habit and choose a frequency!"
+      );
+    }
     try {
-      if (!title.trim() || weekdays.length === 0) {
-        return Alert.alert(
-          "Novo hábito",
-          "Informe o nome do hábito e escolha o período."
-        );
-      }
 
       await api.post("/habits", { title, weekdays });
 
       setTitle("");
-      setWeekDays([]);
+      setWeekdays([]);
 
-      Alert.alert("Novo hábito", "Hábito criado com sucesso!");
+      Alert.alert("Success, a new habit has been created");
+      
     } catch (error) {
-      console.log(error);
-      Alert.alert("Ops", "Não foi possível criar um novo hábito.");
+      console.error(error);
+      Alert.alert("Ops", "It was not possible to create a new Habit.");
     }
   };
 
@@ -72,7 +73,7 @@ export const New = () => {
         </Text>
 
         <Text className="mt-6 text-white text-base font-semibold">
-          What would you compromise ?
+          What would you be your commitment ?
         </Text>
 
         <TextInput

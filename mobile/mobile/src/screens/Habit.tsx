@@ -44,7 +44,7 @@ export const Habit = () => {
     )
   : 0;
 
-  console.log(habitsProgress, 'habitsProgress')
+
 
 
   const fetchHabits = async ()=> {
