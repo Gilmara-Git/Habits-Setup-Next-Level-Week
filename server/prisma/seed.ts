@@ -14,6 +14,7 @@ const thirdHabitCreationDate = new Date('2023-01-08T05:00:00.000')
 async function run() {
   await prisma.habit.deleteMany()
   await prisma.day.deleteMany()
+  await prisma.habit.deleteMany();
 
   /**
    * Create habits

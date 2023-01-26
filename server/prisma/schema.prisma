@@ -7,11 +7,15 @@ generator client {
 
 generator erd {
   provider = "prisma-erd-generator"
+  output                    = "./database/ERD.svg"
+  theme                     = "forest"
+  includeRelationFromFields = true
 }
 
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL") // url do banco
+  // relationMode = "prisma"
 }
 
 model Day {
@@ -28,6 +32,7 @@ model Habit {
   id            String          @id @default(uuid()) // universal unique identifier
   title         String
   created_at    DateTime
+  
   dayHabits     DayHabit[]
   weekDays HabitWeekDays[]
 
@@ -46,6 +51,7 @@ model HabitWeekDays {
  
 
   @@unique([habit_id, week_day]) // o mesmo habito somente podera estar disponivel 1 VEZ no mesmo dia da semana
+  @@index([habit_id])
   @@map("habit_week_days")
 }
 

@@ -4,40 +4,34 @@ import { z } from "zod";
 import dayjs from "dayjs";
 
 export const appRoutes = async (app: FastifyInstance) => {
-  app.post("/habits", async (request) => {
-    // request.body, request.query, request.params
-    console.log(request.body, 'request.body')
+  app.post('/habits', async (request) => {
+    
     const createHabitBody = z.object({
       title: z.string(),
-      weekDays: z.array(
-        z.number().min(0).max(6)),
-      //[0,1,2,3,4,5,6] Sunday to Saturday
+      weekdays: z.array(z.number().min(0).max(6)),
     });
+    
 
-    const { title, weekDays } = createHabitBody.parse(request.body);
-    const today = dayjs().startOf("day").toDate();
-    // startOf() transforma a hora , minutes, em 00:00:00
-    //toDate() metodo do js para transformar em date
+  const { title, weekdays } = createHabitBody.parse(request.body);
+ 
+  console.log(title, 'title', 'weekdays' ,weekdays)
 
-    try {
-      await prisma.habit.create({
-        data: {
-          title,
-          created_at: today,
-          weekDays: {
-            create: weekDays.map((weekDay) => {
-              return {
-                week_day: weekDay,
-              };
-            }),
-          },
+    const today = dayjs().startOf('day').toDate();
+
+    await prisma.habit.create({
+      data: {
+        title,
+        created_at: today,
+        weekDays: {
+          create: weekdays.map((weekDay) => {
+            return {
+              week_day: weekDay,
+            };
+          }),
         },
-      });
-    } catch (e) {
-      console.error(e);
-    }
+      },
+    });
   });
-
   app.get("/day", async (request) => {
     const getDayParams = z.object({
       date: z.coerce.date(),
