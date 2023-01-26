@@ -19,20 +19,27 @@ const [title, setTitle] = useState('');
 const [ weekdays, setWeekdays] = useState<number[]>([]);
 
 const  createNewHabit = async (event: FormEvent)=> {
-  event.preventDefault()
+  event.preventDefault();
 
-  if (!title || weekdays.length === 0) {
-    return
+  if (!title.trim() || weekdays.length === 0) {
+    return alert('Inform your new Habit and choose a frequency!!')
   }
-  await api.post('habits', {
-    title,
-    weekdays
-  })
+  try{
+    await api.post("/habits", {
+      title,
+      weekdays
+    })
+  
+    setTitle('')
+    setWeekdays([])
+  
+    alert('Success, you new habit has been created')
 
-  setTitle('')
-  setWeekdays([])
 
-  alert('Hábito criado com sucesso!')
+  }catch(e){
+    alert('Error occurred, habit was not created')
+    console.error(e)
+  }
 }
 
 
@@ -47,22 +54,6 @@ const toggleWeekdayHandler =(weekday: number)=>{
   }
 }
 
-// const createNewHabit = async (event : FormEvent)=>{ 
-//     event.preventDefault();
-//     if(!title || weekdays.length === 0 ){
-//       return
-//     }
-    
-//     try{
-//       await  api.post('habits', { 
-//          title,
-//          weekdays
-//        })
-   
-//        alert('Habito criado com sucesso')
-
-//     }catch(e){ console.error(e)}
-// }
 
   return (
     <form 

@@ -5,6 +5,9 @@ import { generateDatesFromYearBeginning } from "../utils/generateDatesFromYearBe
 import { HabitDay } from "./HabitDay";
 
 const weekdays = ["S", "M", "T", "W", "T", "F", "S"];
+const summaryDates = generateDatesFromYearBeginning();
+const minimumSummaryDates = 18 * 7 // 18 weeks as a minimum to be shown on the screen
+const amountOfDatesToBeFilled = minimumSummaryDates - summaryDates.length;
 
 
 type SummaryProps = {
@@ -15,11 +18,7 @@ type SummaryProps = {
 }[]
 
 export const SummaryTable = () => {
-  const summaryDates = generateDatesFromYearBeginning();
   const [ summary, setSummary ] = useState<SummaryProps>([]);
-
-  const minimumSummaryDates = 18 * 7 // 18 weeks as a minimum to be shown on the screen
-  const amountOfDatesToBeFilled = minimumSummaryDates - summaryDates.length;
 
 useEffect(()=>{
   api.get('summary')
@@ -42,8 +41,8 @@ useEffect(()=>{
       </div>
 
       <div className="grid grid-rows-7 grid-flow-col gap-3">
-        { summaryDates.length > 0 && summaryDates.map(summaryDate =>{
-          
+        { summary.length > 0 && summaryDates.map(summaryDate =>{
+          console.log(summaryDate, '45454545454')
           const daysInSummary = summary.find(day=> {
             return dayjs(summaryDate).isSame(day.date, 'day')
           })

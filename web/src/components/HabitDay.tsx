@@ -23,7 +23,14 @@ export const HabitDay =({ defaultCompleted = 0 , amount = 0 , date }:HabitDayPro
 
     const completedPercentage = amount > 0 ? Math.round((completed/amount)*100) : 0; 
     const monthAndDay = dayjs(date).format('MM/DD')
-    const dayOfWeek = dayjs(date).format('dddd')
+    const dayOfWeek = dayjs(date).format('dddd')    
+    const currentDate = new Date()
+
+    const isDateToday = currentDate.getDate() ===  date.getDate() && currentDate.getMonth() === date.getMonth();
+
+
+  
+    
 
     return ( 
         <Popover.Root>
@@ -33,7 +40,9 @@ export const HabitDay =({ defaultCompleted = 0 , amount = 0 , date }:HabitDayPro
                 'bg-violet-800 border-violet-600': completedPercentage >= 20 && completedPercentage < 40,
                 'bg-violet-700 border-violet-500': completedPercentage >= 40 && completedPercentage < 60,
                 'bg-violet-600 border-violet-500': completedPercentage >= 60 && completedPercentage < 80,
-                'bg-violet-500 border-violet-400': completedPercentage >= 80
+                'bg-violet-500 border-violet-400': completedPercentage >= 80,
+                'bg-zinc-900 border-violet-400': isDateToday
+
             })}/>
             <Popover.Portal>
                 <Popover.Content className='min-w-[320px] p-6 rounded-2xl bg-zinc-900 flex flex-col'>

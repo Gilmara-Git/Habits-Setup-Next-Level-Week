@@ -3,6 +3,7 @@ import { Check } from "phosphor-react";
 import { useEffect, useState } from 'react'; 
 import { api } from '../lib/axios';
 import dayjs from 'dayjs';
+import clsx from 'clsx';
 
 interface HabitsListProps {
     date: Date
@@ -20,7 +21,7 @@ type HabitsInfo  = {
 
 export const HabitsList =({date, onHandleCompleted}: HabitsListProps)=>{
     const [ habitsInfo, setHabitsInfo ] = useState<HabitsInfo>();
-
+  
     useEffect(()=>{
         api.get('day', {
             params: { 
@@ -66,7 +67,7 @@ export const HabitsList =({date, onHandleCompleted}: HabitsListProps)=>{
 
 
 
-    return ( <div className="mt-6 flex flex-col gap-3">
+    return ( <div className='mt-6 flex flex-col gap-3'>
         {
             habitsInfo?.possibleHabits.map(habit=>{
                 return   (
