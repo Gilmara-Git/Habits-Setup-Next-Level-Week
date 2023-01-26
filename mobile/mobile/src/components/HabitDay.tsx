@@ -51,7 +51,7 @@ export const HabitDay = ({
           amountAccomplishedPercentage >= 60 &&
           amountAccomplishedPercentage < 80,
         ['bg-violet-500 border-violet-400']: amountAccomplishedPercentage >= 80,
-        ['border-white border-4']: isCurrentDay,})}
+        ['bg-zinc-900 border-violet-400 border-4']: isCurrentDay,})}
         style={{ width: DAY_SIZE, height: DAY_SIZE }}
       {...rest}
     />
