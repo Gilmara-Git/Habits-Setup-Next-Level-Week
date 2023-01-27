@@ -11,7 +11,9 @@
 <h3 align="center"><img src="https://ik.imagekit.io/cnbmdh4b9w/allMobile_DVqYyI-_g.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674571508513" alt="mobile display"/></h3>
 </div>
 
-<h3 align-"center"><img src="https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__1__E-6_uQNi7.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1674776299430" alt="gif"/></h3>
+<h3 align="center"><img src="https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__1__E-6_uQNi7.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1674776299430" alt="gif"/></h3>
+
+
 # About
 
 Application to help you setup and commit to new 'habits' for the year.</br>
