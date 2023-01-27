@@ -22,6 +22,7 @@ type HabitsInfo  = {
 export const HabitsList =({date, onHandleCompleted}: HabitsListProps)=>{
     const [ habitsInfo, setHabitsInfo ] = useState<HabitsInfo>();
   
+    console.log(habitsInfo, '25')
     useEffect(()=>{
         api.get('day', {
             params: { 

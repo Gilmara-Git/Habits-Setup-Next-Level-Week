@@ -20,6 +20,7 @@ type SummaryProps = {
 export const SummaryTable = () => {
   const [ summary, setSummary ] = useState<SummaryProps>([]);
 
+
 useEffect(()=>{
   api.get('summary')
   .then(response=>setSummary(response.data))
@@ -42,7 +43,7 @@ useEffect(()=>{
 
       <div className="grid grid-rows-7 grid-flow-col gap-3">
         { summary.length > 0 && summaryDates.map(summaryDate =>{
-          console.log(summaryDate, '45454545454')
+       
           const daysInSummary = summary.find(day=> {
             return dayjs(summaryDate).isSame(day.date, 'day')
           })
