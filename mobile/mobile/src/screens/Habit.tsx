@@ -29,8 +29,8 @@ export const Habit = () => {
 
   const parsedDate = dayjs(date); //  convertendo a data que chega como string no parametro da rota
   //https://day.js.org/docs/en/display/format
-  const dayOfWeek = parsedDate.format("dddd"); // formatando para o dia da semana escrito por extenso
-  const dayAndMonth = parsedDate.format("DD/MM");
+  const dayOfWeek = parsedDate.format("dddd"); // formatando para o dia da semana escrito por extenso - Sunday
+  const dayAndMonth = parsedDate.format("MM/DD"); // 01/26
   const isDateInPast = parsedDate.endOf('day').isBefore(new Date());
   
   const [loading, setLoading] = useState(true);

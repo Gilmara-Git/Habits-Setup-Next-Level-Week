@@ -22,7 +22,7 @@ export const ProgressBar =({ progress = 0 } : ProgressBarProps )=>{
     };
   });
   
-        console.log(progress, 'progress sendo passado para o progress bar')
+      
       // console.log(style)
     
       // STYLE is showing undefined, so used the variable `${progress} to style the progress bar
